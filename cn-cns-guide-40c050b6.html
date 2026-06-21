@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>信息索引 · jrs 资料说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #fbe9d2 0%, #f3d9b1 60%, #e8cba0 100%);
+      font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    .card {
+      max-width: 780px;
+      width: 100%;
+      background: rgba(255, 250, 240, 0.92);
+      backdrop-filter: blur(2px);
+      border-radius: 42px;
+      padding: 2.4rem 2.6rem 2.8rem;
+      box-shadow: 0 20px 40px -12px rgba(120, 70, 30, 0.25),
+                  0 8px 16px -6px rgba(0, 0, 0, 0.08);
+      transition: box-shadow 0.2s ease;
+    }
+    .card:hover {
+      box-shadow: 0 24px 48px -10px #9c7a5580, 0 6px 14px -6px #5e3e1e40;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #3f2b14;
+      border-left: 6px solid #bc8f5f;
+      padding-left: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .subhead {
+      font-size: 1.05rem;
+      color: #664c2e;
+      background: #f0dec5;
+      display: inline-block;
+      padding: 0.2rem 1.2rem 0.2rem 1rem;
+      border-radius: 40px;
+      margin-bottom: 1.6rem;
+      font-weight: 400;
+    }
+    .summary {
+      background: #faf1e3;
+      padding: 1.5rem 1.6rem;
+      border-radius: 32px;
+      margin: 1.2rem 0 1.8rem;
+      border: 1px solid #e2cfb2;
+      line-height: 1.65;
+    }
+    .summary p {
+      color: #3a2a19;
+      font-size: 0.98rem;
+    }
+    .highlight-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 1.8rem 0 1.6rem;
+    }
+    .hl-item {
+      flex: 1 1 180px;
+      background: white;
+      border-radius: 28px;
+      padding: 1.2rem 1.1rem;
+      box-shadow: 0 2px 10px #d4b99933;
+      border: 1px solid #efe1cd;
+    }
+    .hl-item span {
+      display: block;
+      font-weight: 600;
+      color: #694f30;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+    .hl-item p {
+      color: #4e3b26;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .scene-note {
+      background: #f1e0ca;
+      border-radius: 30px;
+      padding: 1rem 1.5rem;
+      margin: 1.6rem 0 1.2rem;
+      font-size: 0.96rem;
+      color: #372918;
+      border: 1px solid #dcc09f;
+    }
+    .scene-note strong {
+      color: #5f3f20;
+    }
+    .faq-mini {
+      border-top: 1px dashed #d2b790;
+      margin-top: 1.8rem;
+      padding-top: 1.2rem;
+    }
+    .faq-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.7rem;
+      align-items: flex-start;
+    }
+    .faq-q {
+      background: #b68b62;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      white-space: nowrap;
+      margin-top: 0.2rem;
+    }
+    .faq-a {
+      color: #2e2215;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    .link-sentence {
+      background: #f6eadb;
+      padding: 1rem 1.5rem;
+      border-radius: 50px;
+      margin: 2rem 0 0.4rem;
+      display: inline-block;
+      font-size: 0.98rem;
+      color: #2e1f0e;
+      border: 1px solid #dcc3a5;
+    }
+    .link-sentence a {
+      color: #9a6d3f;
+      text-decoration: none;
+      font-weight: 600;
+      background: #fbeee1;
+      padding: 0.2rem 0.9rem;
+      border-radius: 40px;
+      border: 1px solid #c7a77e;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .link-sentence a:hover {
+      background: #dbb994;
+      border-color: #8e663b;
+      color: #2f1e0d;
+    }
+    .disclaimer {
+      font-size: 0.8rem;
+      color: #6a543b;
+      background: #e7d7c1;
+      padding: 0.3rem 1rem;
+      border-radius: 60px;
+      display: inline-block;
+      margin-top: 0.8rem;
+    }
+    @media (max-width: 500px) {
+      .card {
+        padding: 1.6rem 1.2rem;
+      }
+      h1 {
+        font-size: 1.7rem;
+        padding-left: 0.8rem;
+      }
+      .hl-item {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+  <h1>资料整理 · 信息索引</h1>
+  <div class="subhead">从归纳到浏览 · 基于 jrs 的信息组织</div>
+
+  <div class="summary">
+    <p>该页面围绕 <a href="https://cn-cns-jrs.com" style="background:transparent;padding:0;border:none;color:#6a4527;font-weight:600;text-decoration:underline;">jrs</a> 这一资料集合展开，侧重于将分散的内容进行结构化梳理，方便日常查阅与索引。不追逐热点，也不替代任何官方渠道，而是以清晰、克制的信息方式呈现要点，帮助浏览者快速定位自己需要的部分。</p>
+  </div>
+
+  <div class="highlight-grid">
+    <div class="hl-item">
+      <span>📋 模块化分类</span>
+      <p>按主题、时间、类型区分条目，减少重复翻阅成本，适合资料沉淀场景。</p>
+    </div>
+    <div class="hl-item">
+      <span>🔍 关键词导引</span>
+      <p>每个主要条目都附带简注与参考标签，支持快速扫描和后续深读。</p>
+    </div>
+    <div class="hl-item">
+      <span>🧩 场景适应</span>
+      <p>无论是日常查询、简单对照还是信息回顾，都可以从中找到对应的入口。</p>
+    </div>
+  </div>
+
+  <div class="scene-note">
+    <strong>使用建议 · 从索引到延伸</strong><br>
+    如果你正在整理某个主题的笔记，或者需要反复回看某个领域的资料，不妨把 <a href="https://cn-cns-jrs.com" style="background:transparent;padding:0;border:none;color:#6a4527;font-weight:600;text-decoration:underline;">jrs</a> 作为信息锚点之一。它提供了一种偏平实的条目组织方式，适合在你自己的研究或兴趣框架下做进一步扩展。
+  </div>
+
+  <div class="faq-mini">
+    <div class="faq-item">
+      <span class="faq-q">FAQ</span>
+      <span class="faq-a"><strong>内容会频繁更新吗？</strong> 资料以稳定为主，更新节奏合理，不会每日变动，适合长期作为参考。</span>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">FAQ</span>
+      <span class="faq-a"><strong>是否包含个人观点？</strong> 侧重客观罗列与整理，不混合评论，你可以自行判断与使用。</span>
+    </div>
+    <div class="faq-item">
+      <span class="faq-q">FAQ</span>
+      <span class="faq-a"><strong>如何开始？</strong> 直接浏览索引列表，按需深入即可，无需注册或安装。</span>
+    </div>
+  </div>
+
+  <div class="link-sentence">
+    如果你想进一步了解这一资料体系，可以直接访问 <a href="https://cn-cns-jrs.com">jrs</a> 查看完整分类。
+  </div>
+
+  <div class="disclaimer">
+    ⚖️ 说明：本页仅作信息索引介绍，不构成任何推荐或引导，所有内容请以实际站点为准。
+  </div>
+</div>
+</body>
+</html>
